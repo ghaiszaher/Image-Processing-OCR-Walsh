@@ -1,7 +1,7 @@
 
-#Source: https://stackoverflow.com/a/42314798
 
 def plotimage(img, title=None, figsize=None, invert=True):
+    #Source: https://stackoverflow.com/a/42314798
     import numpy as np
     from matplotlib import pyplot as plt
     
@@ -49,7 +49,6 @@ def vert_seg(bw, black=1):
 
     lines = []
 
-    width = bw.shape[1]
     height = bw.shape[0]
 
     i = 0
@@ -76,7 +75,6 @@ def draw_vert_lines(vert, lines, blue=(255,255,0), red=(0,255,255)):
     import numpy as np
     
     width = vert.shape[1]
-    height = vert.shape[0]
     for line in lines:
         start = line['start']
         end = line['end']
@@ -88,7 +86,6 @@ def hor_seg(img, black=1):
     import numpy as np
     
     width = img.shape[1]
-    height = img.shape[0]
     
     j = 0
     start = 0
@@ -128,7 +125,7 @@ def inner_prod(a,b):
 
     import numpy as np
 
-    return int(np.sum(np.abs(a-b)))
+    return int(np.sum(np.abs(np.array(a)-np.array(b))))    
 
 def normalize(v):
     import numpy as np
@@ -139,7 +136,8 @@ def normalize(v):
     return v / norm
 
 def distance(v1, v2):
-    import numpy as np
+#    import numpy as np
 
-    return np.dot((v1), (v2))
+#    return np.dot(normalize(v1), normalize(v2))
+    return inner_prod(v1,v2)
 
