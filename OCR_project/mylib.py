@@ -61,7 +61,7 @@ def vert_seg(bw, black=1):
                 end = i-1
                 
             if i!=start:
-                lines.append({'start': start,'end': end})            
+                lines.append({'start': start,'end': end+1})            
             start=i+1
 
         if i==height-1:
@@ -97,7 +97,7 @@ def hor_seg(img, black=1):
             else:
                 end = j-1
             if j!=start:
-                chars.append({'start':start,'end':end})
+                chars.append({'start':start,'end':end+1})
                 
             start=j+1
 
