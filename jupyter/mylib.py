@@ -120,12 +120,12 @@ def draw_hor_lines(hor, chars, start, end, blue=(255,255,0), red=(0,255,255)):
 
 def inner_prod(a,b):
     '''
-    a and b are 2D numpy arrays, with exact same shape
+    a and b are n-D numpy arrays, with exact same shape
     '''
 
     import numpy as np
-
-    return int(np.sum(np.abs(np.array(a)-np.array(b))))    
+    #return int(np.sum(np.abs(np.array(a)-np.array(b))))    
+    return int(np.sum(np.array(a)*np.array(b)))
 
 def normalize(v):
     import numpy as np
@@ -135,9 +135,10 @@ def normalize(v):
         return v
     return v / norm
 
-def distance(v1, v2):
-#    import numpy as np
+def distance(a, b):
+    import numpy as np
 
-#    return np.dot(normalize(v1), normalize(v2))
-    return inner_prod(v1,v2)
+#    return np.dot(normalize(a), normalize(b))
+#    return inner_prod(a,b)
+    return int(np.sum(np.abs(np.array(a)-np.array(b))))    
 
